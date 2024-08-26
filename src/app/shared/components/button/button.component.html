@@ -1,0 +1,10 @@
+<div class="flex w-full">
+    <button class="flex items-center justify-center w-full rounded p-1" [class]="color">
+        @if(showGoogleImage) {
+            <img src="assets/images/icons/google-icon.svg" class="img-icon" alt="google icone">
+        }
+        <p class="text-center" [class]="classText">
+            {{ text }}
+        </p>
+    </button>
+</div>

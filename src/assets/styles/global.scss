@@ -1,0 +1,21 @@
+@import "@styles/sizes.scss";
+@import "@styles/colors.scss";
+@import "@styles/fonts.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: $font-poppyns;
+}
+
+
+html, body, main {
+  max-width: $window-width;
+  max-height: $window-height;
+  background-color: $primary-color;
+}

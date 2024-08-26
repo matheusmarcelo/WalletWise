@@ -1,0 +1,30 @@
+@import "@styles/colors.scss";
+@import "@styles/fonts.scss";
+@import "@styles/sizes.scss";
+
+.green-button {
+    background-color: $secondary-color;
+}
+
+.white-button {
+    background-color: $white;
+}
+
+.text-white-semi-bold {
+    font-family: $font-poppyns;
+    color: $white;
+    font-weight: 600;
+    font-size: $p16;
+}
+
+.text-black-semi-bold {
+    font-family: $font-poppyns;
+    color: $black;
+    font-weight: 600;
+    font-size: $p16;
+}
+
+.img-icon {
+    width: $p32;
+    height: $p32;
+}

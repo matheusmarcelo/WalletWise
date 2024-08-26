@@ -1,0 +1,10 @@
+@import "@styles/colors.scss";
+
+input {
+    outline: none;
+}
+
+.error {
+    box-shadow: 0 0 0 3px $error; // Ajuste o valor de 3px conforme necessário
+    border-radius: 0.5rem;
+}

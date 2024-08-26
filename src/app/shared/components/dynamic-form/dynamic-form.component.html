@@ -1,0 +1,19 @@
+<form [formGroup]="form" class="w-full">
+    <div class="flex flex-wrap gap-x-1 gap-y-2">
+        @for (field of fields; track field.id) {
+            <label [for]="field.name">{{ field.label }}</label>
+            <input 
+            class="p-2 rounded-lg {{field.width}}"
+            [id]="field.name" 
+            [formControlName]="field.name" 
+            [type]="field.type" 
+            [placeholder]="field.placeholder"
+            [ngClass]="{
+                'error': form.get(field.name)?.invalid &&
+                 (form.get(field.name)?.touched && 
+                 form.get(field.name)?.errors?.['required']),
+            }"
+            />
+        }
+    </div>
+</form>

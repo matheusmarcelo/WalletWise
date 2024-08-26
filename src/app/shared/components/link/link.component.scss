@@ -1,0 +1,10 @@
+@import "@styles/colors.scss";
+@import "@styles/sizes.scss";
+
+.link {
+    color: $link;
+    font-weight: 400;
+    font-size: $p12;
+    text-decoration: underline;
+    cursor: pointer;
+}
