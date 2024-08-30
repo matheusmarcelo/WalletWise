@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LogoComponent } from '../../shared/components/logo/logo.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { DividerComponent } from '../../shared/components/divider/divider.component';
 import { LinkComponent } from '../../shared/components/link/link.component';
 import { Validators } from '@angular/forms';
 import { DynamicFormComponent } from '../../shared/components/dynamic-form/dynamic-form.component';
+import { LoginService } from 'src/app/services/login/login-service.service';
+import { FormField } from 'src/app/entities/formField/formField.interface';
 
 @Component({
   selector: 'app-login',
@@ -14,25 +16,27 @@ import { DynamicFormComponent } from '../../shared/components/dynamic-form/dynam
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  formFields = [
-    { name: 'username', type: 'email', placeholder: 'Email', width: 'w-full', validators: [Validators.required, Validators.email] },
-    { name: 'email', type: 'password', placeholder: 'Senha', width: 'w-full', validators: [Validators.required] },
+  protected formFields: FormField[] = [
+    { 
+      name: 'email', 
+      type: 'email', 
+      placeholder: 'Email', 
+      width: 'w-full', 
+      validators: [Validators.required, Validators.email] 
+    },
+    { 
+      name: 'senha', 
+      type: 'password', 
+      placeholder: 'Senha', 
+      width: 'w-full', 
+      validators: [Validators.required] 
+    },
   ];
 
-  constructor() {
-    this.showErrorMsg("testesteste")
-  }
+  private loginService: LoginService = inject(LoginService);
+  constructor() {}
 
-  showError: boolean = false;
-  errorMessage: string = '';
-
-  showErrorMsg(message: string) {
-    this.errorMessage = message;
-    this.showError = true;
-
-    // Oculta a mensagem após 3 segundos
-    setTimeout(() => {
-      this.showError = false;
-    }, 5000);
+  protected async login() {
+    await this.loginService.login();
   }
 }

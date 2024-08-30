@@ -1,0 +1,11 @@
+.loader-page {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.445);
+    z-index: 1000;
+}

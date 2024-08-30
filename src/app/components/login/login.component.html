@@ -1,15 +1,11 @@
 <section class="flex items-center justify-center min-h-screen px-4">
-    @if(showError) {
-        <div class="error-message">
-            {{ errorMessage }}
-        </div>
-    }
+
     <div class="shadow w-96 h-auto bg-white p-8 flex text-center justify-center flex-col rounded-lg gap-y-2">
         <app-logo></app-logo>
         <p class="text-white">Bem-Vindo a WalletWise</p>
         <p class="text-white">Retome o controle da sua carteira</p>
         <app-dynamic-form [fields]="formFields"></app-dynamic-form>
-        <app-button text="CONFIRMAR" color="green-button" classText="text-white-semi-bold"></app-button>
+        <app-button (click)="login()" text="CONFIRMAR" color="green-button" classText="text-white-semi-bold"></app-button>
         <app-divider></app-divider>
         <app-button [showGoogleImage]="true" text="Login com o google" color="white-button" classText="text-black-semi-bold"></app-button>
 
