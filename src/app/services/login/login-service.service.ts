@@ -14,8 +14,8 @@ export class LoginService {
   ) { }
 
 
-  public async login(): Promise<void> {
-    return lastValueFrom(this.http.get(this.apiService.getEndpoint("dasd"))
+  public async login(): Promise<any> {
+    return lastValueFrom(this.http.get(this.apiService.getEndpoint("login"))
       .pipe(
         map((response: any) => {
           try {
