@@ -32,11 +32,9 @@ describe('LoginService', () => {
     };
 
     service.login().then(response => {
-      // Verifica a resposta da requisição
       expect(response).toEqual(mockResponse);
     });
 
-    // Captura a requisição HTTP feita pela função login
     const req = httpTestingControler.expectOne(`${environments.apiUrl}login`);
 
     expect(req.request.method).toEqual("GET");

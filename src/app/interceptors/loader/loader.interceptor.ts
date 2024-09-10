@@ -9,8 +9,6 @@ export const loaderInterceptor: HttpInterceptorFn = (req, next) => {
   loaderService.show();
   
   return next(req).pipe(
-    finalize(() => setTimeout(() => {
-      loaderService.hide();
-    }, 5000)),
+    finalize(() => loaderService.hide())
   );
 };
