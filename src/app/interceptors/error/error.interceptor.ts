@@ -11,8 +11,8 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       let errorMessage: string = "Ocorreu um erro desconhecido!";
       let consoleErrorMessage: string = "";
 
-      if(error.error instanceof ErrorEvent) {
-        errorMessage = `${error.message}`;
+      if(error.error) {
+        errorMessage = `${error.error.Message}`;
       } else {
         consoleErrorMessage = `\nCódigo do erro: ${error.status}\nMensagem: ${error.message}`;
       }

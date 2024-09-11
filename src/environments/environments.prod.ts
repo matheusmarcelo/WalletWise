@@ -1,6 +1,4 @@
-import "../../src/environments/environments"
-
 export const environments = {
     production: true,
-    apiUrl: ""
+    apiUrl: "http://localhost:5000/"
 }

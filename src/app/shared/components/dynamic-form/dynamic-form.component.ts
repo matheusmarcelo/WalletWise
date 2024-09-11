@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FormField } from 'src/app/entities/formField/formField.interface';
 
@@ -13,6 +13,7 @@ import { FormField } from 'src/app/entities/formField/formField.interface';
 export class DynamicFormComponent implements OnInit {
   @Input() fields: FormField[] = [];
   @Input() formData: any = {};
+  @Output() formEmitter: EventEmitter<FormGroup> = new EventEmitter<FormGroup>();
   protected form: FormGroup;
 
   constructor(private fb: FormBuilder){
@@ -29,5 +30,9 @@ export class DynamicFormComponent implements OnInit {
       formGroup[field.name] = [this.formData[field.name] || '', field.validators || []];
     });
     this.form = this.fb.group(formGroup);
+  }
+
+  protected emitForm() {
+    this.formEmitter.emit(this.form);
   }
 }

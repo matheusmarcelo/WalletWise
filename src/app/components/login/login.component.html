@@ -4,7 +4,7 @@
         <app-logo></app-logo>
         <p class="text-white">Bem-Vindo a WalletWise</p>
         <p class="text-white">Retome o controle da sua carteira</p>
-        <app-dynamic-form [fields]="formFields"></app-dynamic-form>
+        <app-dynamic-form [fields]="formFields" (formEmitter)="setUserlogin($event)"></app-dynamic-form>
         <app-button (click)="login()" text="CONFIRMAR" color="green-button" classText="text-white-semi-bold"></app-button>
         <app-divider></app-divider>
         <app-button [showGoogleImage]="true" text="Login com o google" color="white-button" classText="text-black-semi-bold"></app-button>

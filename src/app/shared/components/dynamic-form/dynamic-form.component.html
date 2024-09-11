@@ -8,6 +8,7 @@
             [formControlName]="field.name" 
             [type]="field.type" 
             [placeholder]="field.placeholder"
+            (input)="emitForm()"
             [ngClass]="{
                 'error': form.get(field.name)?.invalid &&
                  (form.get(field.name)?.touched && 
