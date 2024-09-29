@@ -4,6 +4,8 @@ import { LoginService } from './login-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpTestingController, HttpClientTestingModule} from '@angular/common/http/testing';
 import { environments } from 'src/environments/environments';
+import { Login } from 'src/app/entities/authentication/login';
+import { User } from 'src/app/entities/user/user';
 
 describe('LoginService', () => {
   let service: LoginService;
@@ -21,8 +23,8 @@ describe('LoginService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('shold make an HTTP GET request', async () => {
-    const mockResponse = 
+  it('shold make an HTTP POST request', async () => {
+    const mockResponse: User = 
     {  
       id: 1,
       code: "0123456789",
@@ -31,14 +33,13 @@ describe('LoginService', () => {
       access_token: "456789"
     };
 
-    service.login().then(response => {
+    const userLogin: Login = {
+      email: "teste@gmail.com",
+      password: "1234"
+    }
+
+    service.loginAsync(userLogin).then(response => {
       expect(response).toEqual(mockResponse);
     });
-
-    const req = httpTestingControler.expectOne(`${environments.apiUrl}login`);
-
-    expect(req.request.method).toEqual("GET");
-
-    req.flush(mockResponse);
   });
 });

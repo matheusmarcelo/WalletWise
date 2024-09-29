@@ -1,9 +1,0 @@
-{
-    "login": {
-        "id": 1,
-        "code": "0123456789",
-        "name": "matheus",
-        "email": "matheus@teste.com",
-        "access_token": "456789"
-    }
-  }

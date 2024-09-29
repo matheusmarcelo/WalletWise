@@ -40,13 +40,17 @@ export class LoginComponent {
   private loginService: LoginService = inject(LoginService);
 
   protected async login() {
-    if(this.fb && this.fb.valid) {
-      await this.loginService.login(this.userLogin);
+    if(this.fb && Object.keys(this.fb.controls).length > 0) {
+
+      this.fb.markAllAsTouched();
+      
+      if(this.fb.valid) {
+        await this.loginService.loginAsync(this.userLogin);
+      } else {
+        alert("Preecha todos os campos obrigatórios!");
+      }
+
     } else {
-      console.log(this.fb)
-      // Object.values(userLogin.fb.controls).forEach((control) => {
-      //   control.markAsTouched();
-      // });
       alert("Preencha todos os campos!");
     }
   }

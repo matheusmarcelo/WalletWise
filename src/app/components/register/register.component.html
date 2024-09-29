@@ -1,0 +1,27 @@
+<section class="flex items-center justify-center gap-12 min-h-screen px-4">
+
+    <section class="w-96 h-auto p-8 flex text-center justify-center flex-col rounded-lg gap-y-2">
+        <app-logo></app-logo>
+        <ul class="text-start text-white">
+            <li class="flex gap-2 items-center">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Controle tudo que entra e sai da sua carteira de um jeito fácil</p>
+            </li>
+            <li class="flex gap-2 mt-5 items-center">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Relatório de todo seu gasto do mês </p>
+            </li>
+            <li class="flex gap-2 mt-5 justify-center items-center">
+                <i class="fa-solid fa-circle-check"></i>
+                <p>Histórico de todos seus gastos ou ganhos desde o primeiro ida</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="shadow w-96 h-auto p-8 flex text-center justify-center flex-col rounded-lg gap-y-2">
+        <p class="text-xl text-white">Bem-vindo a WalletWise</p>
+        <app-dynamic-form (formEmitter)="setRegisterUser($event)" [fields]="formFields"></app-dynamic-form>
+        <app-button (click)="registerUser()" text="CONFIRMAR" color="green-button" classText="text-white-semi-bold"></app-button>
+        <p class="text-white text-sm">Já passui uma conta? <app-link link="/login" text="Login"></app-link></p>
+    </section>
+</section>

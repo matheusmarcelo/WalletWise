@@ -1,20 +1,22 @@
 <form [formGroup]="form" class="w-full">
     <div class="flex flex-wrap gap-x-1 gap-y-2">
         @for (field of fields; track field.id) {
-            <label [for]="field.name">{{ field.label }}</label>
-            <input 
-            class="p-2 rounded-lg {{field.width}}"
-            [id]="field.name" 
-            [formControlName]="field.name" 
-            [type]="field.type" 
-            [placeholder]="field.placeholder"
-            (input)="emitForm()"
-            [ngClass]="{
-                'error': form.get(field.name)?.invalid &&
-                 (form.get(field.name)?.touched && 
-                 form.get(field.name)?.errors?.['required']),
-            }"
-            />
+            <div class="{{ field.width }} flex flex-col text-start">
+                <label class="{{field.textColor}} mb-1" [for]="field.name">{{ field.label }}</label>
+                <input 
+                class="p-1 rounded-lg"
+                [id]="field.name" 
+                [formControlName]="field.name" 
+                [type]="field.type" 
+                [placeholder]="field.placeholder"
+                (input)="emitForm()"
+                [ngClass]="{
+                    'error': form.get(field.name)?.invalid &&
+                    (form.get(field.name)?.touched && 
+                    form.get(field.name)?.errors?.['required']),
+                }"
+                />
+            </div>
         }
     </div>
 </form>
